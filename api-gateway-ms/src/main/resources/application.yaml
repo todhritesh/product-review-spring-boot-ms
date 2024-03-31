@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: api-gateway-ms
+  cloud:
+    gateway:
+      routes:
+        - id: PRODUCT-MS
+          uri:
+            lb://PRODUCT-MS
+          predicates:
+            - Path=/api/products/**
+
+        - id: REVIEW-MS
+          uri:
+            lb://REVIEW-MS
+          predicates:
+            - Path=/api/review/**
+
+server:
+  port: 8888
+
